@@ -1,5 +1,6 @@
 # Instructions
-Instructions for settin up the spark cluster for the project
+Instructions for settin up the spark cluster for the project, based on the instructions found on:
+https://medium.com/ymedialabs-innovation/apache-spark-on-a-multi-node-cluster-b75967c8cb2b
 
 ## 1. Launching VMs
 On Snic Science cloud, launch one master VM and X amount of worker VMs 
