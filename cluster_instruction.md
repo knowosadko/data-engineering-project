@@ -1,11 +1,11 @@
 # Instructions
 Instructions for settin up the spark cluster for the project, based on the instructions found on:
-https://medium.com/ymedialabs-innovation/apache-spark-on-a-multi-node-cluster-b75967c8cb2b
+https://phoenixnap.com/kb/install-spark-on-ubuntu
 
 ## 1. Launching VMs
 On Snic Science cloud, launch one master VM and X amount of worker VMs 
 (all using the flavor medium and Ubuntu 22.04 - 2023.01.07 and the created 
-SSH key for the group.
+SSH key for the group. Add security group "spark-master" which allows 8080-connections
 
 ## 2. Installing required dependencies
 Connect to master node, using associated floating ip. Run the following command:
@@ -32,3 +32,24 @@ tar xvf spark-*ls
 Move the spark directory to opt/spark by running 
 
 sudo mv spark-3.0.1-bin-hadoop2.7 /opt/spark
+
+## 4. Configure spark environment
+Add home paths to the user profile by running
+
+echo "export SPARK_HOME=/opt/spark" &gt;&gt; ~/.profile
+echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" &gt;&gt; ~/.profile
+echo "export PYSPARK_PYTHON=/usr/bin/python3" &gt;&gt; ~/.profile
+
+After adding, load the .profile file in the command line by running
+
+source ~/.profile
+
+## 5. Start Spark Master server
+run start-master.sh
+
+Run jps to see that a Master has been created
+
+Go to http://<floatingipofmasterVM>:8080 which should show the Spark GUI
+
+Start a worker node by running start-worker spark://<nameofmasterVM>:7070
+
