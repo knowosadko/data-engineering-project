@@ -1,7 +1,0 @@
-Instructions for setting up the Spark cluster used in the project
-
-1. On Snic Science cloud, launch one master VM and X amount of worker VMs 
-(all using the flavor medium and Ubuntu 22.04 - 2023.01.07 and the created 
-SSH key for the group.
-
-2. 
