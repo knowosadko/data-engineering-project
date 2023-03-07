@@ -24,8 +24,8 @@ For this project it will look like:
 
 127.0.0.1 localhost                
 
-192.168.2.186 Group-14-Master
-192.168.2.188 Group-14-Worker1
+192.168.2.186 Group-14-Master\
+192.168.2.188 Group-14-Worker1\
 192.168.2.224 Group-14-Worker2
 
 ## 3. On Master only
@@ -35,26 +35,26 @@ Then run: sudo nano spark-env.sh
 
 and add at the bottom
 
-export SPARK_MASTER_HOST='Master-IP'
+export SPARK_MASTER_HOST='Master-IP'\
 export JAVA_HOME=Path_of_JAVA_installation
   
 In our case:
-export SPARK_MASTER_HOST=192.168.2.186
+export SPARK_MASTER_HOST=192.168.2.186\
 export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-amd64
 
-In /opt/spark/conf, create a file called slaves
+In /opt/spark/conf, create a file called slaves\
 sudo nano slaves
 
 and add the name of the master and workers:
 
-Group-14-Master
-Group-14-Worker1
+Group-14-Master\
+Group-14-Worker1\
 Group-14-Worker2
 
 ## 3. Configure SSH (master)
 1) sudo apt-get install openssh-server openssh-client
 
-2) ssh-keygen -t rsa -P ""
+2) ssh-keygen -t rsa -P ""\
 Press enter
 
 3) Copy the content of .ssh/id_rsa.pub (of master) to .ssh/authorized_keys (of all the slaves as well as master).
@@ -79,8 +79,8 @@ sudo mv spark-3.0.1-bin-hadoop2.7 /opt/spark
 ## 5. Configure spark environment (master and workers)
 Add home paths to the user profile by running
 
-echo "export SPARK_HOME=/opt/spark" >> ~/.profile
-echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" >> ~/.profile
+echo "export SPARK_HOME=/opt/spark" >> ~/.profile\
+echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" >> ~/.profile\
 echo "export PYSPARK_PYTHON=/usr/bin/python3" >> ~/.profile
 
 After adding, load the .profile file in the command line by running
