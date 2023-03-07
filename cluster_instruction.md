@@ -103,3 +103,7 @@ On worker VMs: run start-worker.sh spark://MASTERNODEIP:7070\
 Run jps on each machine to see that a Master/worker have been created
 
 Stop the cluster by running stop-all.sh on the master VM
+
+## Create new nodes
+Have created a snapshot called Group-14-Worker-Snapshot. By launching an instance from this, a new worker should easily be made.\
+Haven't tried this yet though!
