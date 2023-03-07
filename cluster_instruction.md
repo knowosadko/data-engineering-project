@@ -18,7 +18,7 @@ java -version; javac -version; scala -version; git --version
 
 which should print the versions
 
-## 2. Add entries in hosts file
+## 2. Add entries in hosts file (master and workers)
 Add the private IP adress with name of each VM in /etc/hosts, using sudo nano /etc/hosts
 For this project it will look like:
 
@@ -87,7 +87,7 @@ After adding, load the .profile file in the command line by running
 
 source ~/.profile
 
-## 6. Start Spark Master server
+## 6. Start Spark cluster
 run start-all.sh
 
 Run jps to see that a Master and workers have been created
