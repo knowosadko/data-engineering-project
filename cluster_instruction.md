@@ -1,6 +1,10 @@
 # Instructions
-Instructions for settin up the spark cluster for the project, based on the instructions found on:
+Instructions for settin up the spark cluster for the project, based on the instructions found on:\
 https://phoenixnap.com/kb/install-spark-on-ubuntu
+
+and
+
+https://www.linkedin.com/pulse/how-setup-install-apache-spark-311-cluster-ubuntu-shrivastava/?trk=pulse-article_more-articles_related-content-card
 
 ## 1. Launching VMs
 On Snic Science cloud, launch one master VM and X amount of worker VMs 
@@ -8,7 +12,8 @@ On Snic Science cloud, launch one master VM and X amount of worker VMs
 SSH key for the group. Add security group "spark-master" which allows 8080-connections
 
 ## 2. Installing required dependencies (master and workers)
-Connect to nodes, using associated floating ip. Run the following command:
+Connect to nodes, using ssh -i PATH/TO/GROUPKEY ubuntu@floatingipofvm\
+Run the following command:
 
 sudo apt install default-jdk scala git -y
 
@@ -40,7 +45,7 @@ export JAVA_HOME=Path_of_JAVA_installation
   
 In our case:
 export SPARK_MASTER_HOST=192.168.2.186\
-export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 In /opt/spark/conf, create a file called slaves\
 sudo nano slaves
