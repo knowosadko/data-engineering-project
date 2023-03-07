@@ -49,7 +49,7 @@ run start-master.sh
 
 Run jps to see that a Master has been created
 
-Go to http://floatingipofmasterVM:8080 which should show the Spark GUI
+Go to floatingipofmasterVM:8080 which should show the Spark GUI
 
 Start a worker node by running start-worker spark://nameofmasterVM:7070
 
