@@ -9,7 +9,7 @@ https://www.linkedin.com/pulse/how-setup-install-apache-spark-311-cluster-ubuntu
 ## 1. Launching VMs
 On Snic Science cloud, launch one master VM and X amount of worker VMs 
 (all using the flavor medium and Ubuntu 22.04 - 2023.01.07 and the created 
-SSH key for the group. Add security group "spark-master" which allows 8080-connections
+SSH key for the group. Add security group "Group14" which allows 8080-connections and 8888-connections
 
 ## 2. Installing required dependencies (master and workers)
 Connect to nodes, using ssh -i PATH/TO/GROUPKEY ubuntu@floatingipofvm\
@@ -104,6 +104,21 @@ Run jps on each machine to see that a Master/worker have been created
 
 Stop the cluster by running stop-all.sh on the master VM
 
-## Create new nodes
+## Create new worker nodes
 Have created a snapshot called Group-14-Worker-Snapshot. By launching an instance from this, a new worker should easily be made.\
 Haven't tried this yet though!
+
+# Set up Jupyter notebook
+## 1. Install packages (on master)
+Run sudo apt install python3-pip
+
+Then run\
+sudo pip3 install notebook
+
+## 2. Start notebook (on master)
+Run jupyter notebook password\
+Choose a password
+
+Run jupyter notebook --ip=* --port=8888
+
+Go to floatingipofmaster:8888 and fill in password
