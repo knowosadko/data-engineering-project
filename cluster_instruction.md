@@ -13,7 +13,9 @@ SSH key for the group. Add security group "spark-master" which allows 8080-conne
 
 ## 2. Installing required dependencies (master and workers)
 Connect to nodes, using ssh -i PATH/TO/GROUPKEY ubuntu@floatingipofvm\
-Run the following command:
+Run the following commands:
+
+sudo apt-get update
 
 sudo apt install default-jdk scala git -y
 
@@ -92,12 +94,12 @@ After adding, load the .profile file in the command line by running
 
 source ~/.profile
 
-## 6. Start Spark cluster
-run start-all.sh
+## 6. Start/Stop Spark cluster
+On master VM: run start-master.sh\
+Go to floatingipofmasterVM:8080 which should show the Spark GUI. At the top is a link: spark://MASTERNODEIP:7070
 
-Run jps to see that a Master and workers have been created
+On worker VMs: run start-worker.sh spark://MASTERNODEIP:7070\
 
-Go to floatingipofmasterVM:8080 which should show the Spark GUI
+Run jps on each machine to see that a Master/worker have been created
 
-Start a worker node by running start-worker spark://localhost:7070
-
+Stop the cluster by running stop-all.sh on the master VM
