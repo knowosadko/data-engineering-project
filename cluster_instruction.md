@@ -106,7 +106,8 @@ Stop the cluster by running stop-all.sh on the master VM
 
 ## Create new worker nodes
 Have created a snapshot called Group-14-Worker-Snapshot. By launching an instance from this, a new worker should easily be made.\
-Haven't tried this yet though!
+Haven't tried this yet though! Also the git repository should be cloned on this
+
 
 # Set up Jupyter notebook
 ## 1. Install packages (on master)
@@ -115,7 +116,10 @@ Run sudo apt install python3-pip
 Then run\
 sudo pip3 install notebook
 
-## 2. Start notebook (on master)
+## 2. Add data for analysis in notebook
+Clone this repository, which contains sample_data.json, on every instance
+
+## 3. Start notebook (on master)
 Run jupyter notebook password\
 Choose a password
 
