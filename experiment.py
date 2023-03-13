@@ -28,3 +28,9 @@ def task_1():
     (assign_num(x['sentiment']),1)).reduceByKey(add)
     return rdd3.take(20)
 
+def task_2():
+    data = spark.read.json("sample_data.json")
+    data1 = data.groupBy(data["subreddit"]).count()
+    data2 = data1.orderBy("count", ascending=False)
+    return data.take(10)
+
