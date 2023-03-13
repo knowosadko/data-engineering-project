@@ -29,7 +29,6 @@ def task_1():
     (assign_num(x['sentiment']),1)).reduceByKey(add)
     return rdd3.take(20)
 
-
 def Simons_task():
     data = spark.read.json("sample_data.json")
     # Drop all columns except body and score
@@ -58,4 +57,11 @@ def Simons_task():
     data2_score_based_df = data2_score_based.toDF(["Word", "Score"])
     # Save the data to a file
     #data2_score_based_df.write.csv("data2_score_based.csv")
+
+def task_2():
+    data = spark.read.json("sample_data.json")
+    data1 = data.groupBy(data["subreddit"]).count()
+    data2 = data1.orderBy("count", ascending=False)
+    return data.take(10)
+
 
